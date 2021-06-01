@@ -6146,23 +6146,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asad\\.nuget\\packages\\": {},
+    "C:\\Users\\ND.COM\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\BookListRazor\\BookListRazor.csproj",
+      "projectUniqueName": "D:\\Work\\BookList\\BookListRazor.csproj",
       "projectName": "BookListRazor",
-      "projectPath": "D:\\work\\BookListRazor\\BookListRazor.csproj",
-      "packagesPath": "C:\\Users\\Asad\\.nuget\\packages\\",
-      "outputPath": "D:\\work\\BookListRazor\\obj\\",
+      "projectPath": "D:\\Work\\BookList\\BookListRazor.csproj",
+      "packagesPath": "C:\\Users\\ND.COM\\.nuget\\packages\\",
+      "outputPath": "D:\\Work\\BookList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Asad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ND.COM\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6226,7 +6226,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
