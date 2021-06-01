@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BookListRazor.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading.Tasks;
 
 namespace BookListRazor.Pages.BookList
 {
@@ -26,7 +23,7 @@ namespace BookListRazor.Pages.BookList
         }
         public async Task<IActionResult> OnPost()
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var BookFromDb = await _db.Book.FindAsync(Book.Id);
                 BookFromDb.Name = Book.Name;

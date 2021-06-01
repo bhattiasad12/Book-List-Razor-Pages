@@ -733,7 +733,6 @@ D:\Work\BookList\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\Work\BookList\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Work\BookList\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Work\BookList\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.csprojAssemblyReference.cache
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.AssemblyInfoInputs.cache
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.AssemblyInfo.cs
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.csproj.CoreCompileInputs.cache
@@ -764,3 +763,4 @@ D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.csproj.CopyComplete
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.dll
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.pdb
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.genruntimeconfig.cache
+D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.csprojAssemblyReference.cache

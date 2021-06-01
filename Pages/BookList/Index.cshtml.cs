@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BookListRazor.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BookListRazor.Pages.BookList
 {
@@ -28,7 +26,7 @@ namespace BookListRazor.Pages.BookList
         public async Task<IActionResult> OnPostDelete(int id)
         {
             var book = await _Db.Book.FindAsync(id);
-            if(book == null)
+            if (book == null)
             {
                 return NotFound();
             }
@@ -37,7 +35,5 @@ namespace BookListRazor.Pages.BookList
 
             return RedirectToPage("Index");
         }
-
-
     }
 }

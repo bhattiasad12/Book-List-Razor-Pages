@@ -1,7 +1,6 @@
 ﻿using BookListRazor.Model;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,7 +20,7 @@ namespace BookListRazor.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data =_db.Book.ToList() });
+            return Json(new { data = _db.Book.ToList() });
         }
 
         [HttpDelete]
@@ -33,7 +32,7 @@ namespace BookListRazor.Controllers
                 return Json(new { success = false, message = "Error while Deleting" });
             }
             _db.Book.Remove(bookFromDb);
-            _db.SaveChangesAsync();
+            _db.SaveChanges();
             return Json(new { success = true, message = "Delete successful" });
         }
     }

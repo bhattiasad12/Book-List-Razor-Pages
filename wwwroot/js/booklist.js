@@ -5,9 +5,9 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $('#DT_load').({
+    dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/api/book",DataTable
+            "url": "/api/book",
             "type": "GET",
             "datatype": "json"
         },
