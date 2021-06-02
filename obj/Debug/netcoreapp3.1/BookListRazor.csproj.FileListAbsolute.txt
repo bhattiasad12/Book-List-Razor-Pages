@@ -746,7 +746,6 @@ D:\Work\BookList\obj\Debug\netcoreapp3.1\scopedcss\bundle\BookListRazor.styles.c
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.TagHelpers.input.cache
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.TagHelpers.output.cache
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.RazorCoreGenerate.cache
-D:\Work\BookList\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Create.cshtml.g.cs
 D:\Work\BookList\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Edit.cshtml.g.cs
 D:\Work\BookList\obj\Debug\netcoreapp3.1\Razor\Pages\BookList\Index.cshtml.g.cs
 D:\Work\BookList\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
@@ -764,3 +763,4 @@ D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.dll
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.pdb
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.genruntimeconfig.cache
 D:\Work\BookList\obj\Debug\netcoreapp3.1\BookListRazor.csprojAssemblyReference.cache
+D:\Work\BookList\bin\Debug\netcoreapp3.1\libman.json

@@ -16,6 +16,23 @@ namespace BookListRazor.Pages.BookList
             _Db = db;
         }
 
+        [BindProperty]
+
+        public Book Book { get; set; }
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _Db.Book.AddAsync(Book);
+                await _Db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
+        }
+
         public IEnumerable<Book> Books { get; set; }
 
         public async Task OnGet()

@@ -1,4 +1,5 @@
 ﻿using BookListRazor.Model;
+using BookListRazor.Pages.BookList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -6,24 +7,21 @@ using System.Threading.Tasks;
 
 namespace BookListRazor.Controllers
 {
-    [Route("api/Book")]
-    [ApiController]
     public class BookController : Controller
     {
         private readonly ApplicationDbContext _db;
-
         public BookController(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        [HttpGet]
+        [HttpGet("book/GetAll")]
         public IActionResult GetAll()
         {
             return Json(new { data = _db.Book.ToList() });
         }
 
-        [HttpDelete]
+        [HttpDelete("book/delete")]
         public IActionResult Delete(int id)
         {
             var bookFromDb = _db.Book.FirstOrDefault(u => u.Id == id);
