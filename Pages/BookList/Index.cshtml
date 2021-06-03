@@ -7,12 +7,15 @@
     <div class="col-9">
         <h2 class="text-info">Book List</h2>
     </div>
+
+    @*Create book button that opens a modal.*@
     <div class="col-3">
         <button type="button" class="btn btn-info form-control text-white" data-toggle="modal" data-target="#exampleModal">
             Create New Book
         </button>
     </div>
 
+    @*Modal of create.*@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -54,7 +57,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Close</button>
                         <input type="submit" value="Create" class="btn btn-primary form-control" />
                     </div>
 
@@ -63,57 +66,7 @@
         </div>
     </div>
 
-    <div class="col-12 border p-3 mt-3">
-        <form method="post">
-            @if (Model.Books.Count() > 0)
-            {
-                <table class="table table-striped border">
-                    <tr class="table-secondary">
-                        <th>
-                            <label asp-for="Books.FirstOrDefault().Name"></label>
-                        </th>
-                        <th>
-                            <label asp-for="Books.FirstOrDefault().Author"></label>
-                        </th>
-                        <th>
-                            <label asp-for="Books.FirstOrDefault().ISBN"></label>
-                        </th>
-                        <th>
-
-                        </th>
-                    </tr>
-                    @foreach (var item in Model.Books)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(m => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.Author)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.ISBN)
-                            </td>
-                            <td>
-                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete this book?')" class="btn btn-danger btn-sm">Delete</button>
-                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
-                            </td>
-                        </tr>
-                    }
-                </table>
-            }
-            else
-            {
-                <p>No Books available.</p>
-            }
-        </form>
-    </div>
-
-    <div class="col-12" style="text-align:center">
-        <br />
-        <span class="h3 text-info">OR</span>
-        <br /><br />
-    </div>
+    @*DataTable.*@
     <div class="col-12 border p-3">
         <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -126,7 +79,60 @@
             </thead>
         </table>
     </div>
+
+    @*Modal of edit.*@
+    @*<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-page-handler="OnPostEdit">
+                    <input type="hidden" asp-for="Book.Id" />
+                    <div class="modal-body">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label asp-for="Book.Name"></label>
+                            </div>
+                            <div class="col-8">
+                                <input asp-for="Book.Name" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Book.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label asp-for="Book.Author"></label>
+                            </div>
+                            <div class="col-8">
+                                <input asp-for="Book.Author" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Book.Author" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label asp-for="Book.ISBN"></label>
+                            </div>
+                            <div class="col-8">
+                                <input asp-for="Book.ISBN" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Book.ISBN" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Update" class="btn btn-primary form-control" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>*@
 </div>
+
 
 @section Scripts
 {
