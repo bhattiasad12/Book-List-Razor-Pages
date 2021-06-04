@@ -1,20 +1,56 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+﻿using BookListRazor.Model;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BookListRazor.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ApplicationDbContext _Db;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ApplicationDbContext db)
         {
-            _logger = logger;
+            _Db = db;
         }
 
-        public void OnGet()
-        {
+        [BindProperty]
 
+        public Book Book { get; set; }
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _Db.Book.AddAsync(Book);
+                await _Db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
+        }
+
+        public IEnumerable<Book> Books { get; set; }
+
+        public async Task OnGet()
+        {
+            Books = await _Db.Book.ToListAsync();
+        }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var book = await _Db.Book.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            _Db.Book.Remove(book);
+            await _Db.SaveChangesAsync();
+
+            return RedirectToPage("Index");
         }
     }
 }
