@@ -3,6 +3,7 @@ var dataTable;
 
 $(document).ready(function () {
     loadDataTable();
+    var data = 0;
 });
 
 function loadDataTable() {
@@ -20,13 +21,14 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <button onclick=Edit("${data}") class='btn btn-info form-control text-white' style='cursor:pointer; width:70px;'>
+                        <button onclick=Edit("${data}") class='btn btn-primary form-control text-white' style='cursor:pointer; width:70px;'>
                             Edit
                         </button> 
                         &nbsp;                       
                         &nbsp;
                         <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
-                            onclick=Delete('/book/delete?id='+${data})>
+                            data-toggle="modal" data-target="#confirmDelete"
+                            data-title="Delete Book" data-message="Are you sure you want to delete this book?")>
                             Delete
                         </a>
                         </div>`;
@@ -40,16 +42,14 @@ function loadDataTable() {
     });
 }
 
-function Delete(url) {
+function Delete(Id) {
     $.ajax({
         type: "DELETE",
-        url: url,
+        data: {
+            id: Id
+        },
         success: function (data) {
             if (data.success) {
-                var alert;
-                alert = data.message;
-                $('#alert').modal('show')
-
                 dataTable.ajax.reload();
             }
             else {
@@ -61,13 +61,12 @@ function Delete(url) {
 function Edit(Id) {
     $.ajax({
         url: "Book/Edit",
-        type: "GET", 
+        type: "GET",
         data: {
             id: Id
         }
     })
         .done(function (response) {
-            debugger;
             $("#Updateid").val(response.id);
             $("#name").val(response.name);
             $("#author").val(response.author);
@@ -90,8 +89,23 @@ function Update() {
         },
     })
         .done(function (response) {
-            debugger;
-            $('#element').toast('show')
+            toastr.success(data.message);
+            dataTable.ajax.reload();
         });
-
 }
+
+$('#confirmDelete').on('show.bs.modal', function (e) {
+    $message = $(e.relatedTarget).attr('data-message');
+    $(this).find('.modal-body p').text($message);
+    $title = $(e.relatedTarget).attr('data-title');
+    $(this).find('.modal-title').text($title);
+
+    var form = $(e.relatedTarget).closest('form');
+    $(this).find('.modal-footer #confirm').data('form', form);
+});
+
+$('#confirmDelete').find('.modal-footer #confirm').on('click', function () {
+    dataTable.ajax.reload();
+
+
+s});
